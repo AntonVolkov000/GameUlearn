@@ -9,6 +9,8 @@ Packages/
 UserSettings/
 ProjectSettings/
 *.idea
+Assembly-CSharp.csproj
+NewUnityProject.sln
 # =============== #
 # Unity generated #
 # =============== #
