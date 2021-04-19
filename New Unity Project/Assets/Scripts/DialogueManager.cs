@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
     private bool startDialogue;
 
-    void Start()
+    private void Start()
     {
         sentences = new Queue<string>();
     }
@@ -24,28 +23,30 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("isOne", true);
 
         nameText.text = dialogue.name;
+        PlayerController.inDialogue = true;
         
         sentences.Clear();
         startDialogue = true;
-        
+
         foreach (var sentence in dialogue.sentences)
             sentences.Enqueue(sentence);
         DisplayNextSentence();
     }
 
-    public void DisplayNextSentence()
+    private void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
-            
+        
         var sentence = sentences.Dequeue();
+        StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
 
-    IEnumerator TypeSentence(string sentence)
+    private IEnumerator TypeSentence(string sentence)
     {
         if (startDialogue)
         {
@@ -57,15 +58,15 @@ public class DialogueManager : MonoBehaviour
             dialogueText.text = "";
             foreach (var letter in sentence.ToCharArray())
             {
-                Thread.Sleep(25);
                 dialogueText.text += letter;
-                yield return null;
+                yield return new WaitForSeconds(0.05f);
             }
         }
     }
 
-    public void EndDialogue()
+    private void EndDialogue()
     {
+        PlayerController.inDialogue = false;
         animator.SetBool("isOne", false);
     }
 }
