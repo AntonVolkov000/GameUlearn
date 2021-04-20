@@ -163,7 +163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 91204018}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8686cb029149fa64fbc3c78a19de7527, type: 3}
+  m_Script: {fileID: 11500000, guid: 382d076c5efc949488d09e41b2f8e43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nameText: {fileID: 226186133}
@@ -389,7 +389,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fbbd3971261acb4381897ea58cbc1c9, type: 3}
+  m_Script: {fileID: 11500000, guid: 54fc936fb278cdd4a8c2db5bb79d0db7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 2088332188}
@@ -621,7 +621,7 @@ Animator:
   m_GameObject: {fileID: 833130336}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6e54b9a9ac9fa4b499f71ca593fba934, type: 2}
+  m_Controller: {fileID: 9100000, guid: 7d7d0ddc6e1ec034489448994bf1e9b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1167,20 +1167,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1862560947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 912190853a0669049846cb5acfdc714d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ff6eb2cbc0d71a429f7054cd88fbff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: First
+    name: 123
     sentences:
-    - "\u044B\u044B\u044B\u044B\u044B\u044B\u044B\u044B\u044B\u044B\u044B\u044B\u044B123"
-    - "\u0432\u0430\u0444\u0432\u0430\u0444\u043F\u0444\u043F"
-    - "\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430\u0430"
+    - 12333
+    - 33
   feetPos: {fileID: 945079015}
   checkRadius: 0.3
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
 --- !u!70 &1862560952
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1329,7 +1328,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2088332188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5fd48d6ee9fcee49a79fde703f51707, type: 3}
+  m_Script: {fileID: 11500000, guid: bce875b245f7a1f4f99d303c53cfb659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
