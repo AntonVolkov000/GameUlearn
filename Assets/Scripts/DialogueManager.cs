@@ -12,6 +12,9 @@ public class DialogueManager : MonoBehaviour
     
     private Queue<string> sentences;
     private bool startDialogue;
+    private bool nextName;
+    private string playertName;
+    private Dialogue dialogue;
 
     private void Start()
     {
@@ -22,7 +25,8 @@ public class DialogueManager : MonoBehaviour
     {
         animator.SetBool("isOne", true);
 
-        nameText.text = dialogue.name;
+        playertName = PlayerController.name;
+        this.dialogue = dialogue;
         PlayerController.inDialogue = true;
         
         sentences.Clear();
@@ -40,7 +44,16 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-        
+        if (nextName)
+        {
+            nameText.text = playertName;
+            nextName = false;
+        }
+        else
+        {
+            nameText.text = dialogue.name;
+            nextName = true;
+        }
         var sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));

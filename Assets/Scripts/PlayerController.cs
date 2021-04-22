@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public new static string name = "Wizard";
     public float speed;
     public float jumpForce;
     private float moveInput;
