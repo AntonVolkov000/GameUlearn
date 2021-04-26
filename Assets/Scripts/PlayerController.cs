@@ -1,23 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
     public float jumpForce;
-    private float moveInput;
-    private float tempJumpForce;
-    
-    public static bool inDialogue;
-    private Rigidbody2D rb;
-
-    private bool isGrounded;
     public Transform feetPos;
     public float checkRadius;
     public LayerMask whatIsGround;
+    public static bool inDialogue;
+    public Vector2 maxDistanceToNeutral;
+    public TextMeshProUGUI shardText;
+
+    private float moveInput;
+    private float tempJumpForce;
+    private Rigidbody2D rb;
+    private bool isGrounded;
     
-    
+    public int CountShards { get; set; }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -31,6 +34,8 @@ public class PlayerController : MonoBehaviour
         jumpForce = inDialogue ? 0 : tempJumpForce;
         
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+        shardText.text = CountShards.ToString();
     }
     
     private void Update()

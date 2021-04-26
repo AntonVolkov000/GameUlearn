@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
-
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
     public Animator animator;
     
     private Queue<string> sentences;
     private bool startDialogue;
+    private Dialogue dialogue;
 
     private void Start()
     {
@@ -21,8 +22,9 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOne", true);
-
         nameText.text = dialogue.name;
+        
+        this.dialogue = dialogue;
         PlayerController.inDialogue = true;
         
         sentences.Clear();
@@ -40,7 +42,6 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-        
         var sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
