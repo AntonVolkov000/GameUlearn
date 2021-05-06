@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Shard
+  - Barrier
+  - Ladder
+  - Spell
   layers:
   - Default
   - TransparentFX
