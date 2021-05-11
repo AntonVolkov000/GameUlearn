@@ -6864,6 +6864,7 @@ MonoBehaviour:
   spellDirection: {fileID: 827797071}
   offset: 0
   countHealth: 3
+  countDamage: 10
 --- !u!1 &1280012131
 GameObject:
   m_ObjectHideFlags: 0
@@ -7726,6 +7727,7 @@ MonoBehaviour:
   radiusTriggerAttack: {x: 1.5, y: 1.5}
   addRangeAttack: 0.2
   countHealth: 3
+  countDamage: 10
 --- !u!50 &1338010287
 Rigidbody2D:
   serializedVersion: 4
@@ -8467,11 +8469,11 @@ MonoBehaviour:
   direction: {x: 1, y: 0}
   speed: 0.7
   player: {fileID: 2088332193}
-  playerHealth: {fileID: 2088332192}
   radiusTriggerMove: {x: 6, y: 6}
   radiusTriggerAttack: {x: 1.5, y: 2.5}
   addRangeAttack: 0.2
   countHealth: 3
+  countDamage: 20
 --- !u!1 &1427148194
 GameObject:
   m_ObjectHideFlags: 0
@@ -9802,6 +9804,7 @@ MonoBehaviour:
   radiusTriggerAttack: {x: 6, y: 3}
   addRangeAttack: 0.8
   countHealth: 3
+  countDamage: 20
 --- !u!1 &1671237962
 GameObject:
   m_ObjectHideFlags: 0
@@ -12437,9 +12440,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1401d98c6592004cb21b07adfb1ea8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
-  healthBar: {fileID: 288079453}
 --- !u!114 &2088332193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12452,6 +12452,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce875b245f7a1f4f99d303c53cfb659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
+  healthBar: {fileID: 288079453}
   speed: 5
   gravityScale: 2
   jumpForce: 9
