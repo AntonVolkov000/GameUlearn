@@ -5475,7 +5475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049714592}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 48.9, y: -2.72, z: 547.9671}
+  m_LocalPosition: {x: 43.17, y: -2.66, z: 547.9671}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1924111756}
@@ -8467,6 +8467,7 @@ MonoBehaviour:
   direction: {x: 1, y: 0}
   speed: 0.7
   player: {fileID: 2088332193}
+  playerHealth: {fileID: 2088332192}
   radiusTriggerMove: {x: 6, y: 6}
   radiusTriggerAttack: {x: 1.5, y: 2.5}
   addRangeAttack: 0.2
