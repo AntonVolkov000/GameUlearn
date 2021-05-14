@@ -5,25 +5,32 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
-    public HealthBar healthBar;
-
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
+        
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            TakeDamage(20);  
+         
     }
 
-    void TakeDamage(int damage)
+    /*
+    public void SavePlayer()
     {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
+        SaveSystem.SavePlayer(this);
     }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        currentHealth = data.health;
+
+        Vector2 position;
+        position.x = data.position[0];
+        position.y = data.position[1];
+        transform.position = position;
+    }
+    */
 }
