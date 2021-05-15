@@ -15,6 +15,7 @@ public class EnemyWizard : MonoBehaviour
     public Transform spellDirection;
     public float offset;
     public float countHealth;
+    public int countDamage;
     
     private bool isGetDamage;
     private bool checkOneCell;
@@ -146,6 +147,7 @@ public class EnemyWizard : MonoBehaviour
         if (!sprite.flipX)
             moveX = Math.Abs(moveX);
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
+        player.TakeDamage(countDamage);
     }
 
     private IEnumerator WaitDamage() {

@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
     public float speed;
     public float gravityScale;
     public float jumpForce;
@@ -29,9 +32,17 @@ public class PlayerController : MonoBehaviour
 
     public int CountShards { get; set; }
     public bool GetDamage { get; set; }
+    
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
 
     private void Start()
     {
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody2D>();
         inDialogue = false;
         tempJumpForce = jumpForce;

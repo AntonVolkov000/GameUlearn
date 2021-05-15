@@ -17,6 +17,7 @@ public class EnemySlime : MonoBehaviour
     public Vector2 radiusTriggerAttack;
     public float addRangeAttack;
     public float countHealth;
+    public int countDamage;
     
     private float oldSpeed;
     private bool isTrigger;
@@ -132,10 +133,11 @@ public class EnemySlime : MonoBehaviour
     
     private void Attack()
     {
+        
         var playerPosition = player.transform.position;
         var positionCurrentObj = transform.position;
-        if (!sprite.flipX && playerPosition.x < positionCurrentObj.x ||
-            sprite.flipX && playerPosition.x > positionCurrentObj.x ) return;
+        if (!sprite.flipX && playerPosition.x > positionCurrentObj.x ||
+            sprite.flipX && playerPosition.x < positionCurrentObj.x ) return;
         if (!PlayerInsideRadius(player.transform.position, transform.position,
             new Vector2(radiusTriggerAttack.x + addRangeAttack, radiusTriggerAttack.y))) return;
         var moveX = -5;
@@ -143,6 +145,7 @@ public class EnemySlime : MonoBehaviour
         if (sprite.flipX)
             moveX = Math.Abs(moveX);
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
+        player.TakeDamage(countDamage);
     }
     
     private void Death() {

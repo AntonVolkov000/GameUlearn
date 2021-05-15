@@ -12,6 +12,7 @@ public class EnemyReaper : MonoBehaviour
     public Vector2 radiusTriggerAttack;
     public float addRangeAttack;
     public float countHealth;
+    public int countDamage;
     
     private float oldSpeed;
     private bool isTrigger;
@@ -104,6 +105,7 @@ public class EnemyReaper : MonoBehaviour
         if (!sprite.flipX)
             moveX = Math.Abs(moveX);
         player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
+        player.TakeDamage(countDamage);
     }
 
     private void Death() {
