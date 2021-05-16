@@ -1,25 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class Loader : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider loadingSlider;
 
-    public void PlayGame(int sceneIndex)
+    public void LoadLevel (int sceneIndex)
     {
-        StartCoroutine(LoadAsynchronously(sceneIndex));
+        StartCoroutine (LoadAsynchronously(sceneIndex));
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    IEnumerator LoadAsynchronously(int sceneIndex)
+    IEnumerator LoadAsynchronously (int sceneIndex)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
