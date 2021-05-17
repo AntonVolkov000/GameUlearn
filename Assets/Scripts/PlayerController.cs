@@ -130,4 +130,28 @@ public class PlayerController : MonoBehaviour
         if (GetDamage)
             GetDamage = false;
     }
+
+    /*public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        if (data != null)
+        {
+            currentHealth = data.health;
+
+            shardText = data.shardText;
+
+            Vector3 position;
+            position.x = data.position[0];
+            position.y = data.position[1];
+            position.z = data.position[2];
+            transform.position = position;
+        }
+    }
+    */
 }
