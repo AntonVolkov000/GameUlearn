@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicSpell : MonoBehaviour
+public class MageMagicSpell : MonoBehaviour
 {
     public float speed;
     public PlayerController player;

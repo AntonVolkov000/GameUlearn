@@ -8,6 +8,8 @@ TagManager:
   - Barrier
   - Ladder
   - Spell
+  - Enemy
+  - PlayerSpell
   layers:
   - Default
   - TransparentFX

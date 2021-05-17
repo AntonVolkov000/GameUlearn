@@ -1,28 +1,19 @@
 fileFormatVersion: 2
-guid: 15ae3dab2ee9f19458563a9631cc814c
+guid: 76871f321f716964b8845e771558443c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6991849013916550155
-    second: Death_0
+      213: 7747166376070283374
+    second: wisest2_5
   - first:
-      213: 3156895337291164288
-    second: Death_2
+      213: -5748166459288618266
+    second: wisest2_6
   - first:
-      213: -1891625820773287384
-    second: Death_4
+      213: -1567340710980913571
+    second: wisest2_7
   - first:
-      213: -5789737788129074030
-    second: Death_5
-  - first:
-      213: 3968659893341466949
-    second: Death_6
-  - first:
-      213: 6495761399759928590
-    second: Death_7
-  - first:
-      213: 4800267807231483719
-    second: Death_8
+      213: 3970285622877630491
+    second: wisest2_12
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -108,176 +99,89 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Death_0
+      name: wisest2_5
       rect:
         serializedVersion: 2
-        x: 76
-        y: 49
-        width: 65
-        height: 93
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 285
+        y: 129
+        width: 222
+        height: 347
+      alignment: 9
+      pivot: {x: 0.7117117, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0449ad32a9080160800000000000000
-      internalID: 6991849013916550155
+      spriteID: e600585d5c6738b60800000000000000
+      internalID: 7747166376070283374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_2
+      name: wisest2_6
       rect:
         serializedVersion: 2
-        x: 305
-        y: 49
-        width: 65
-        height: 96
+        x: 610
+        y: 129
+        width: 223
+        height: 344
       alignment: 9
-      pivot: {x: 0.53846157, y: -0}
+      pivot: {x: 0.70403594, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08aa354559b8fcb20800000000000000
-      internalID: 3156895337291164288
+      spriteID: 6ea79447f096a30b0800000000000000
+      internalID: -5748166459288618266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_4
+      name: wisest2_7
       rect:
         serializedVersion: 2
-        x: 534
-        y: 49
-        width: 70
-        height: 99
+        x: 949
+        y: 129
+        width: 229
+        height: 342
       alignment: 9
-      pivot: {x: 0.55714285, y: -0}
+      pivot: {x: 0.6943232, y: -0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82af9d896589fb5e0800000000000000
-      internalID: -1891625820773287384
+      spriteID: d5679ff6defaf3ae0800000000000000
+      internalID: -1567340710980913571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Death_5
+      name: wisest2_12
       rect:
         serializedVersion: 2
-        x: 763
-        y: 49
-        width: 102
-        height: 101
+        x: 1303
+        y: 129
+        width: 230
+        height: 332
       alignment: 9
-      pivot: {x: 0.4019608, y: 0}
+      pivot: {x: 0.6913043, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29429e33828b6afa0800000000000000
-      internalID: -5789737788129074030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_6
-      rect:
-        serializedVersion: 2
-        x: 1012
-        y: 49
-        width: 88
-        height: 52
-      alignment: 9
-      pivot: {x: 0.26136366, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54135f86523831730800000000000000
-      internalID: 3968659893341466949
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_7
-      rect:
-        serializedVersion: 2
-        x: 1243
-        y: 49
-        width: 84
-        height: 51
-      alignment: 9
-      pivot: {x: 0.27380952, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e0d726ab394952a50800000000000000
-      internalID: 6495761399759928590
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Death_8
-      rect:
-        serializedVersion: 2
-        x: 1474
-        y: 49
-        width: 88
-        height: 53
-      alignment: 9
-      pivot: {x: 0.26136366, y: -0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74f96c4432afd9240800000000000000
-      internalID: 4800267807231483719
+      spriteID: b1036701db9491730800000000000000
+      internalID: 3970285622877630491
       vertices: []
       indices: 
       edges: []
@@ -285,7 +189,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: cf35df29795957f4d96b8f4d2585eca8
+    spriteID: 68a8af3a57cfbf94ca8a503929f3f899
     internalID: 0
     vertices: []
     indices: 
