@@ -10,6 +10,8 @@ public class Ladder : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            PlayerController.inLadder = true;
+            other.GetComponent<Animator>().Play("PlayerStairs");
             other.GetComponent<Rigidbody2D>().gravityScale = 0;
             player.GetDamage = false;
             if (Input.GetKey(KeyCode.W))
@@ -25,6 +27,7 @@ public class Ladder : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerController.inLadder = false;
             other.GetComponent<Rigidbody2D>().gravityScale = player.gravityScale;
         }
     }

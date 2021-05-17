@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI shardText;
     public PlayerMagicSpell magicSpell;
     public Transform spellDirection;
+    public static bool isAttackMagic;
+    public static bool inLadder;
     public float startTimeAttack;
 
     private float moveInput;
@@ -28,7 +30,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded;
     private bool isJump;
-    private bool isAttackMagic;
     private Quaternion rotationSpell;
     private SpriteRenderer sprite;
     private Animator animator;
@@ -63,8 +64,14 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (isAttackMagic) return;
+        if (inDialogue)
+        {
+            animator.Play("PlayerIdle");
+            return;
+        }
+        if (isAttackMagic) return;
         var horizontal = Input.GetAxis("Horizontal");
-        if (isGrounded && Input.GetKey(KeyCode.Space))
+        if (isGrounded && Input.GetKey(KeyCode.Space) && !inLadder)
         {
             rb.velocity = Vector2.up * jumpForce;
             animator.Play("PlayerJump");
@@ -82,7 +89,7 @@ public class PlayerController : MonoBehaviour
                 sprite.flipX = true;
                 SetSpellDirection(-1.5f);
                 moveInput = horizontal;
-                if (!isJump)
+                if (!isJump && !inLadder)
                     animator.Play("PlayerRun");
             }
             else if (horizontal > 0)
@@ -90,18 +97,17 @@ public class PlayerController : MonoBehaviour
                 sprite.flipX = false;
                 SetSpellDirection(1.5f);
                 moveInput = horizontal;
-                if (!isJump)
+                if (!isJump && !inLadder)
                     animator.Play("PlayerRun");
             }
             else
             {
                 moveInput = 0;
-                if (!isJump)
+                if (!isJump && !inLadder)
                     animator.Play("PlayerIdle");
             }
             rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
         }
-
         shardText.text = CountShards.ToString();
         var difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - spellDirection.position;
         var rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
