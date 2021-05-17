@@ -9,7 +9,7 @@ public class DialogueManager: MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
-    
+
     private Queue<Sentence> sentences;
     private bool startDialogue;
     private Dialogue dialogue;
@@ -70,6 +70,7 @@ public class DialogueManager: MonoBehaviour
     private void EndDialogue()
     {
         PlayerController.inDialogue = false;
+        PlayerController.isAttackMagic = false;
         animator.SetBool("isOne", false);
     }
 }
