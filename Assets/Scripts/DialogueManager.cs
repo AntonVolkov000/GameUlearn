@@ -4,26 +4,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager: MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
     
-    private Queue<string> sentences;
+    private Queue<Sentence> sentences;
     private bool startDialogue;
     private Dialogue dialogue;
 
     private void Start()
     {
-        sentences = new Queue<string>();
+        sentences = new Queue<Sentence>();
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("isOne", true);
-        nameText.text = dialogue.name;
-        
+
         this.dialogue = dialogue;
         PlayerController.inDialogue = true;
         
@@ -31,7 +30,9 @@ public class DialogueManager : MonoBehaviour
         startDialogue = true;
 
         foreach (var sentence in dialogue.sentences)
+        {
             sentences.Enqueue(sentence);
+        }
         DisplayNextSentence();
     }
 
@@ -42,10 +43,10 @@ public class DialogueManager : MonoBehaviour
             EndDialogue();
             return;
         }
-        
         var sentence = sentences.Dequeue();
+        nameText.text = sentence.name;
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence.sentence));
     }
 
     private IEnumerator TypeSentence(string sentence)

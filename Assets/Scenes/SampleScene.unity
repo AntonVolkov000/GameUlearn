@@ -13472,9 +13472,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: 
-    sentences: []
-  player: {fileID: 0}
+    sentences:
+    - name: 
+      sentence: 
+  player: {fileID: 2088332193}
 --- !u!1 &1280012131
 GameObject:
   m_ObjectHideFlags: 0
@@ -14701,9 +14702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: "\u0421\u0442\u0440\u0430\u043D\u043D\u0438\u043A"
-    sentences:
-    - 123
+    sentences: []
   player: {fileID: 2088332193}
 --- !u!1 &1327302890
 GameObject:
@@ -20514,13 +20513,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: FirstHero
     sentences:
-    - "\u041F\u0440\u0438\u0432\u0435\u0442 1"
-    - " \u041F\u0440\u0438\u0432\u0435\u0442 2 \u041F\u0440\u0438\u0432\u0435\u0442
-      2"
-    - " \u041F\u0440\u0438\u0432\u0435\u0442 3 \u041F\u0440\u0438\u0432\u0435\u0442
-      3 \u041F\u0440\u0438\u0432\u0435\u0442 3"
+    - name: 1
+      sentence: 123
+    - name: 2
+      sentence: 22222222
+    - name: 5
+      sentence: 33333333333333
   player: {fileID: 2088332193}
 --- !u!61 &1862560954
 BoxCollider2D:
