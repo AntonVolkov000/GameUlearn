@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    public void PlayGame()
+    public GameObject loadingScreen;
+    public Slider loadingSlider;
+
+    public void PlayGame(int sceneIndex)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(LoadAsynchronously(sceneIndex));
     }
 
     public void QuitGame()
@@ -15,4 +19,17 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    IEnumerator LoadAsynchronously(int sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
+
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            var progress = Mathf.Clamp01(operation.progress / .9f);
+            loadingSlider.value = progress;
+            yield return null;
+        }
+    }
 }

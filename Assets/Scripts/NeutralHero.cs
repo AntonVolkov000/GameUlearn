@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class NeutralHero : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private SpriteRenderer sprite;
+    
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        sprite = GetComponent<SpriteRenderer>();
     }
 }
