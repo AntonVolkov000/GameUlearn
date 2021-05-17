@@ -11,7 +11,7 @@ public class EnemyWizard : MonoBehaviour
     public Vector2 radiusTriggerAttackHand;
     public Vector2 radiusTriggerAttackMagic;
     public float addRangeAttackHand;
-    public MagicSpell magicSpell;
+    public MageMagicSpell magicSpell;
     public Transform spellDirection;
     public float offset;
     public float countHealth;
@@ -36,6 +36,8 @@ public class EnemyWizard : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (countHealth == 0)
+            animator.Play("MageDeath");
         if (countHealth == 0 || isGetDamage || waitAttack) return;
         var playerPosition = player.transform.position;
         if (checkOneCell)
@@ -67,6 +69,12 @@ public class EnemyWizard : MonoBehaviour
             else
                 animator.Play("MageIdle");
         }
+    }
+    
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("PlayerSpell"))
+            GetDamage();
     }
     
     private void SetSpellDirection(float add)
@@ -124,6 +132,7 @@ public class EnemyWizard : MonoBehaviour
     private void GetDamage()
     {
         isGetDamage = true;
+        countHealth--;
         animator.Play("MageDamage");
         StartCoroutine(WaitDamage());
     }
