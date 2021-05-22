@@ -554,14 +554,18 @@ MonoBehaviour:
   m_Placeholder: {fileID: 0}
   m_ItemText: {fileID: 1372840993}
   m_ItemImage: {fileID: 0}
-  m_Value: 0
+  m_Value: 3
   m_Options:
     m_Options:
+    - m_Text: "\u041E\u0447\u0435\u043D\u044C \u043D\u0438\u0437\u043A\u043E\u0435"
+      m_Image: {fileID: 0}
     - m_Text: "\u041D\u0438\u0437\u043A\u043E\u0435"
       m_Image: {fileID: 0}
     - m_Text: "\u0421\u0440\u0435\u0434\u043D\u0435\u0435"
       m_Image: {fileID: 0}
     - m_Text: "\u0412\u044B\u0441\u043E\u043A\u043E\u0435"
+      m_Image: {fileID: 0}
+    - m_Text: "\u041E\u0447\u0435\u043D\u044C \u0432\u044B\u0441\u043E\u043A\u043E\u0435"
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
