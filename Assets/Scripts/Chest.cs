@@ -7,39 +7,53 @@ using UnityEngine.EventSystems;
 
 public class Chest : MonoBehaviour, IPointerClickHandler
 {
-    public GameObject shard;
+    public GameObject thing;
     public Vector2 maxDistancePlayer;
     public PlayerController player;
     public Animator animator;
     
     private IEnumerator blinkCoroutine;
+    private bool isShard;
+    private bool isPotion; 
 
     private void Start()
     {
-        shard.SetActive(false);
+        isShard = thing.name == "shard";
+        isPotion = thing.name == "potion";
+        thing.SetActive(false);
     }
-    
+
     private void FixedUpdate()
     {
-        if (shard.gameObject.GetComponent<Shard>().taken)
-        {
-            blinkCoroutine = Blink(5f);
-            StartCoroutine(blinkCoroutine);
-            animator.SetBool("isClose", false);
-        }
+        if (isShard)
+            if (thing.gameObject.GetComponent<Shard>().taken)
+                Close();
+        if (isPotion) 
+            if (thing.gameObject.GetComponent<Potion>().taken)
+                Close();
+    }
+
+    private void Close()
+    {
+        StartCoroutine(Blink(5f));
+        animator.SetBool("isClose", false);
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!shard.activeSelf &&
+        if (!thing.activeSelf &&
             Math.Abs(player.transform.position.x - this.gameObject.transform.position.x) <
             maxDistancePlayer.x &&
             Math.Abs(player.transform.position.y - this.gameObject.transform.position.y) <
             maxDistancePlayer.y)
         {
             animator.SetBool("isClose", true);
-            if (!shard.gameObject.GetComponent<Shard>().taken)
-                shard.SetActive(true);
+            if (isShard)
+                if (!thing.gameObject.GetComponent<Shard>().taken)
+                    thing.SetActive(true);
+            if (isPotion) 
+                if (!thing.gameObject.GetComponent<Potion>().taken)
+                    thing.SetActive(true);
         }
     }
     

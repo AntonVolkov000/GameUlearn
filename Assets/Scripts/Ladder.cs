@@ -10,16 +10,26 @@ public class Ladder : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            PlayerController.inLadder = true;
-            other.GetComponent<Animator>().Play("PlayerStairs");
-            other.GetComponent<Rigidbody2D>().gravityScale = 0;
-            player.GetDamage = false;
-            if (Input.GetKey(KeyCode.W))
-                other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
-            else if (Input.GetKey(KeyCode.S))
-                other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
-            else
-                other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            if (other.GetComponent<PlayerController>().currentHealth == 0)
+            {
+                player.inLadder = false;
+                other.GetComponent<Rigidbody2D>().gravityScale = player.gravityScale;
+                return;
+            }
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || player.transform.position.y > transform.position.y)
+                player.inLadder = true;
+            if (player.inLadder)
+            {
+                other.GetComponent<Animator>().Play("PlayerStairs");
+                other.GetComponent<Rigidbody2D>().gravityScale = 0;
+                player.GetDamage = false;
+                if (Input.GetKey(KeyCode.W))
+                    other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
+                else if (Input.GetKey(KeyCode.S))
+                    other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
+                else
+                    other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+            }
         }
     }
 
@@ -27,7 +37,7 @@ public class Ladder : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PlayerController.inLadder = false;
+            player.inLadder = false;
             other.GetComponent<Rigidbody2D>().gravityScale = player.gravityScale;
         }
     }

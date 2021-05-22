@@ -17,8 +17,19 @@ public class EnemyWitch : MonoBehaviour
     private float oldSpeed;
     private bool isTrigger;
     private bool isAttack;
+    private bool isGetDamage;
     private SpriteRenderer sprite;
     private Animator animator;
+    
+    public void GetDamage()
+    {
+        if (countHealth == 0) return;
+        isGetDamage = true;
+        countHealth--;
+        animator.Play("WitchDamage");
+        StartCoroutine(WaitDamage());
+        isAttack = false;
+    }
 
     private void Start()
     {
@@ -29,7 +40,12 @@ public class EnemyWitch : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (countHealth == 0 || isAttack) return;
+        if (countHealth == 0)
+        {
+            animator.Play("WitchDeath");
+            return;
+        }
+        if (isAttack || isGetDamage) return;
         var playerPosition = player.transform.position;
         if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerMove))
         {
@@ -73,6 +89,12 @@ public class EnemyWitch : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("PlayerSpell"))
+            GetDamage();
+    }
+
     private void StartAttack()
     {
         animator.Play("WitchAttack");
@@ -102,11 +124,16 @@ public class EnemyWitch : MonoBehaviour
         player.GetDamage = true;
         if (!sprite.flipX)
             moveX = Math.Abs(moveX);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
-        player.TakeDamage(countDamage);
+        player.TakeDamage(countDamage, new Vector2(moveX, 5));
     }
 
     private void Death() {
         gameObject.SetActive(false);
+    }
+    
+    private IEnumerator WaitDamage() {
+        yield return new WaitForSeconds(0.5f);
+        isGetDamage = false;
+        isAttack = false;
     }
 }

@@ -15,7 +15,8 @@ public class EnemyWizard : MonoBehaviour
     public Transform spellDirection;
     public float offset;
     public float countHealth;
-    public int countDamage;
+    public int countDamageHand;
+    public int countDamageMagic;
     
     private bool isGetDamage;
     private bool checkOneCell;
@@ -25,9 +26,20 @@ public class EnemyWizard : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator animator;
     private Quaternion rotationSpell;
+    
+    public void GetDamage()
+    {
+        if (countHealth == 0) return;
+        isGetDamage = true;
+        countHealth--;
+        animator.Play("MageDamage");
+        StartCoroutine(WaitDamage());
+        waitAttack = false;
+    }
 
     private void Start()
     {
+        magicSpell.countDamage = countDamageMagic;
         magicSpell.player = player;
         sprite = GetComponent<SpriteRenderer>();
         sprite.flipX = true;
@@ -70,7 +82,7 @@ public class EnemyWizard : MonoBehaviour
                 animator.Play("MageIdle");
         }
     }
-    
+
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.CompareTag("PlayerSpell"))
@@ -123,18 +135,10 @@ public class EnemyWizard : MonoBehaviour
     private void PushMagicSpell()
     {
         var playerPosition = player.transform.position;
-        var difference = playerPosition - spellDirection.position;
+        var difference = new Vector3(playerPosition.x, playerPosition.y + 1.2f, playerPosition.z) - spellDirection.position;
         var rotateZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         rotationSpell = Quaternion.Euler(0f, 0f, rotateZ + offset);
         Instantiate(magicSpell, spellDirection.position, rotationSpell);
-    }
-    
-    private void GetDamage()
-    {
-        isGetDamage = true;
-        countHealth--;
-        animator.Play("MageDamage");
-        StartCoroutine(WaitDamage());
     }
 
     private bool PlayerInsideRadius(Vector3 playerPosition,Vector2 positionCurrentObj,Vector2 radiusTrigger)
@@ -155,8 +159,7 @@ public class EnemyWizard : MonoBehaviour
         player.GetDamage = true;
         if (!sprite.flipX)
             moveX = Math.Abs(moveX);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
-        player.TakeDamage(countDamage);
+        player.TakeDamage(countDamageHand, new Vector2(moveX, 5));
     }
 
     private IEnumerator WaitDamage() {

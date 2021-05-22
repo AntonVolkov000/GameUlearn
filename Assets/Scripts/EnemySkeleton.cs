@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.UIElements;
 
-public class EnemyReaper : MonoBehaviour
+public class EnemySkeleton : MonoBehaviour
 {
     public Vector2 direction;
     public float speed;
@@ -15,10 +17,8 @@ public class EnemyReaper : MonoBehaviour
     public int countDamage;
     
     private float oldSpeed;
-    private bool isTrigger;
     private bool isGetDamage;
     private bool isAttack;
-    private bool isAttackComplete;
     private SpriteRenderer sprite;
     private Animator animator;
     
@@ -27,13 +27,14 @@ public class EnemyReaper : MonoBehaviour
         if (countHealth == 0) return;
         isGetDamage = true;
         countHealth--;
-        animator.Play("ReaperDamage");
+        animator.Play("SkeletonHit");
         StartCoroutine(WaitDamage());
         isAttack = false;
     }
 
     private void Start()
     {
+        oldSpeed = speed;
         sprite = GetComponent<SpriteRenderer>();
         sprite.flipX = true;
         animator = GetComponent<Animator>();
@@ -43,59 +44,42 @@ public class EnemyReaper : MonoBehaviour
     {
         if (countHealth == 0)
         {
-            // animator.Play("ReaperDeath");
-            Death();
+            speed = 0;
+            animator.Play("SkeletonDead");
+            return;
         }
-            
-        if (isAttackComplete || isGetDamage) return;
+        if (isGetDamage || isAttack) return;
         var playerPosition = player.transform.position;
         if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerMove))
         {
-            if (!isTrigger)
-                animator.Play("ReaperWieldWeapon");
-            if (isAttack)
+            var positionCurrentObj = transform.position;
+            if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerAttack) && 
+                (sprite.flipX && playerPosition.x < positionCurrentObj.x ||
+                !sprite.flipX && playerPosition.x > positionCurrentObj.x ))
                 StartAttack();
-            isTrigger = true;
-            if (playerPosition.x < transform.position.x)
-            {
-                speed = Math.Abs(speed) * -1;
-                sprite.flipX = true;
-            }
             else
             {
-                speed = Math.Abs(speed);
-                sprite.flipX = false;
+                if (speed == 0)
+                    speed = oldSpeed;
+                if (playerPosition.x < transform.position.x)
+                {
+                    speed = Math.Abs(speed) * -1;
+                    sprite.flipX = true;
+                }
+                else
+                {
+                    speed = Math.Abs(speed);
+                    sprite.flipX = false;
+                }
+                animator.Play("SkeletonWalk");
             }
         }
         else
         {
-            animator.Play("ReaperPassiveIdle");
-            if (speed != 0)
-                oldSpeed = speed;
             speed = 0;
-            isTrigger = false;
-            isAttack = false;
+            animator.Play("SkeletonIdle");
         }
-    }
-
-    private void StartAttack()
-    {
-        var playerPosition = player.transform.position;
-        if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerAttack))
-        {
-            if (speed != 0)
-                oldSpeed = speed;
-            speed = 0;
-            animator.Play("ReaperAttack");
-            StartCoroutine(WaitAttack());
-        }
-        else
-        {
-            if (speed == 0)
-                speed = oldSpeed;
-            animator.Play("ReaperRunning");
-            transform.Translate(direction.normalized * speed / 8);
-        }
+        transform.Translate(direction.normalized * speed / 8);
     }
 
     private void OnCollisionEnter2D(Collision2D coll)
@@ -104,9 +88,16 @@ public class EnemyReaper : MonoBehaviour
             GetDamage();
     }
     
-    private void IsAttack()
+    private void StartAttack()
     {
         isAttack = true;
+        speed = 0;
+        animator.Play("SkeletonAttack");
+    }
+    
+    private void EndAttack()
+    {
+        isAttack = false;
     }
     
     private bool PlayerInsideRadius(Vector3 playerPosition,Vector2 positionCurrentObj,Vector2 radiusTrigger)
@@ -114,7 +105,7 @@ public class EnemyReaper : MonoBehaviour
         return Math.Abs(playerPosition.x - positionCurrentObj.x) < radiusTrigger.x &&
                Math.Abs(playerPosition.y - positionCurrentObj.y) < radiusTrigger.y;
     }
-
+    
     private void Attack()
     {
         var playerPosition = player.transform.position;
@@ -123,26 +114,16 @@ public class EnemyReaper : MonoBehaviour
             sprite.flipX && playerPosition.x > positionCurrentObj.x ) return;
         if (!PlayerInsideRadius(player.transform.position, transform.position,
             new Vector2(radiusTriggerAttack.x + addRangeAttack, radiusTriggerAttack.y))) return;
-        var moveX = -5;
         player.GetDamage = true;
-        if (!sprite.flipX)
-            moveX = Math.Abs(moveX);
-        player.TakeDamage(countDamage, new Vector2(moveX, 5));
+        player.TakeDamage(countDamage, new Vector2(0, 6));
     }
 
     private void Death() {
         gameObject.SetActive(false);
     }
-    
-    private IEnumerator WaitAttack()
-    {
-        isAttackComplete = true;
-        yield return new WaitForSeconds(0.6f);
-        isAttackComplete = false;
-    }
-    
+
     private IEnumerator WaitDamage() {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.5f);
         isGetDamage = false;
     }
 }
