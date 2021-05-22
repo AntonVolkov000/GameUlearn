@@ -7,10 +7,19 @@ public class Loader : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider loadingSlider;
+    public Animator animator;
+    public Vector3 position;
+    public VectorValue playerStorage;
 
     public void LoadLevel (int sceneIndex)
     {
-        StartCoroutine (LoadAsynchronously(sceneIndex));
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("ObeliskWork"))
+        {
+            playerStorage.initialValue = position;
+            StartCoroutine (LoadAsynchronously(sceneIndex));
+            //DontDestroyOnLoad(transform.Player);
+        }
+
     }
 
     IEnumerator LoadAsynchronously (int sceneIndex)

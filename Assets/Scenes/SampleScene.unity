@@ -4637,6 +4637,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &292867201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 292867202}
+  - component: {fileID: 292867204}
+  - component: {fileID: 292867203}
+  m_Layer: 5
+  m_Name: Fill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &292867202
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292867201}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1419741173}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 10, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &292867203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292867201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.6117647, b: 0.19215687, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &292867204
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292867201}
+  m_CullTransparentMesh: 1
 --- !u!1 &293590126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5510,6 +5585,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402878188}
   m_CullTransparentMesh: 1
+--- !u!1 &421132705
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 421132707}
+  - component: {fileID: 421132706}
+  m_Layer: 5
+  m_Name: LoadingSlider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &421132706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421132705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 0
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 0
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 0}
+  m_FillRect: {fileID: 292867202}
+  m_HandleRect: {fileID: 0}
+  m_Direction: 0
+  m_MinValue: 0
+  m_MaxValue: 1
+  m_WholeNumbers: 0
+  m_Value: 0
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!224 &421132707
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 421132705}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1467019291}
+  - {fileID: 1419741173}
+  m_Father: {fileID: 1336925532}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000015259, y: -45.339504}
+  m_SizeDelta: {x: 346.7005, y: 44.4082}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &421158527
 GameObject:
   m_ObjectHideFlags: 0
@@ -7478,7 +7642,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &666181472
 GameObject:
@@ -14785,6 +14949,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1336925531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336925532}
+  - component: {fileID: 1336925534}
+  - component: {fileID: 1336925533}
+  m_Layer: 5
+  m_Name: LoadingScreen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1336925532
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336925531}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 421132707}
+  m_Father: {fileID: 1427148198}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -960, y: -540}
+  m_SizeDelta: {x: -1120, y: -630}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1336925533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336925531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.2392157, g: 0.21960786, b: 0.31764707, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1336925534
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336925531}
+  m_CullTransparentMesh: 1
 --- !u!1 &1338010283
 GameObject:
   m_ObjectHideFlags: 0
@@ -15371,6 +15611,215 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1362173956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1362173963}
+  - component: {fileID: 1362173962}
+  - component: {fileID: 1362173961}
+  - component: {fileID: 1362173960}
+  - component: {fileID: 1362173959}
+  - component: {fileID: 1362173958}
+  - component: {fileID: 1362173957}
+  m_Layer: 0
+  m_Name: EndingObelisk
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1362173957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362173956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eca38c1f1bf7c8b46bda27470755e8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadingScreen: {fileID: 1336925531}
+  loadingSlider: {fileID: 421132706}
+  animator: {fileID: 1362173960}
+  position: {x: 0, y: 0, z: 0}
+  playerStorage: {fileID: 11400000, guid: 473cd623136916c4aa7e3bb21a836f4b, type: 2}
+--- !u!114 &1362173958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362173956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efd10f25581b3ee4e8ec55460b84e544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1362173960}
+--- !u!114 &1362173959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362173956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1362173957}
+        m_TargetAssemblyTypeName: Loader, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!95 &1362173960
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362173956}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a6edb808f4b2eed4aa5db6f191a52c57, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!58 &1362173961
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362173956}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.0412271
+--- !u!212 &1362173962
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362173956}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -5305062486810272646, guid: 66d0802ffd7343d4082d87b1bc72e891, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.8299999, y: 2.0824542}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1362173963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362173956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.27, y: -1.87, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362192199
 GameObject:
   m_ObjectHideFlags: 0
@@ -15973,6 +16422,42 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1419741172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1419741173}
+  m_Layer: 5
+  m_Name: Fill Area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1419741173
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419741172}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 292867202}
+  m_Father: {fileID: 421132707}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: 2.5, y: 0}
+  m_SizeDelta: {x: -5, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1426010528
 GameObject:
   m_ObjectHideFlags: 0
@@ -16346,6 +16831,7 @@ RectTransform:
   - {fileID: 253182796}
   - {fileID: 288079452}
   - {fileID: 118673391}
+  - {fileID: 1336925532}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -16480,6 +16966,81 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1467019290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1467019291}
+  - component: {fileID: 1467019293}
+  - component: {fileID: 1467019292}
+  m_Layer: 5
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1467019291
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467019290}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 421132707}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.25}
+  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1467019292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467019290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5176471}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1467019293
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467019290}
+  m_CullTransparentMesh: 1
 --- !u!1 &1482229188
 GameObject:
   m_ObjectHideFlags: 0
@@ -20512,12 +21073,111 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - name: 1
-      sentence: 123
-    - name: 2
-      sentence: 22222222
-    - name: 5
-      sentence: 33333333333333
+    - name: "\u041C\u0443\u0434\u0440\u0435\u0446"
+      sentence: "\u041F\u0440\u0435\u0441\u0432\u044F\u0442\u043E\u0439 \u0435\u0434\u0438\u043D\u043E\u0440\u043E\u0436\u0435\u043A!\n\u0427\u0442\u043E
+        \u0442\u044B \u0437\u0430\u0431\u044B\u043B \u0432 \u044D\u0442\u043E\u0439
+        \u0434\u044B\u0440\u0435, \u043C\u0430\u043B\u0435\u0446?"
+    - name: 
+      sentence: "\u041E\u0449\u0443\u0449\u0435\u043D\u0438\u044F \u0431\u044B\u043B\u0438
+        \u0442\u0430\u043A\u0438\u0435, \u0431\u0443\u0434\u0442\u043E \u043D\u043E\u0447\u044C\u044E
+        \u044F \u0432\u044B\u043F\u0438\u043B, \u043A\u0430\u043A \u043C\u0438\u043D\u0438\u043C\u0443\u043C,
+        \u043F\u0430\u0440\u0443 \u0431\u043E\u0447\u043E\u043D\u043A\u043E\u0432
+        \u044D\u043B\u044F, \u043F\u043E\u0434\u0440\u0430\u043B\u0441\u044F \u0441
+        \u0431\u0430\u043D\u0434\u043E\u0439 \u043E\u0440\u043A\u043E\u0432 \u0432
+        \u0442\u0430\u0432\u0435\u0440\u043D\u0435 \u0438 \u0437\u0430\u0447\u0430\u0440\u043E\u0432\u0430\u043B
+        \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0438\u043D\u043E\u0437\u0435\u043C\u043D\u044B\u0445
+        \u0441\u0442\u0440\u0430\u043D\u043D\u0438\u0446 \u043D\u0430 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0435
+        \u043E\u0441\u0442\u0430\u0442\u043A\u0438 \u043C\u0430\u043D\u044B. "
+    - name: 
+      sentence: "\u0418 \u0441\u0443\u0434\u044F \u043F\u043E \u0440\u0430\u0441\u043A\u0430\u043B\u044B\u0432\u0430\u044E\u0449\u0435\u0439\u0441\u044F,
+        \u043A\u0430\u043A \u0441\u043A\u043B\u044F\u043D\u043A\u0430 \u0441 \u0437\u0435\u043B\u044C\u0435\u043C
+        \u0432 \u0440\u0443\u043A\u0430\u0445 \u044E\u043D\u044B\u0445 \u043C\u0430\u0433\u043E\u0432,
+        \u0433\u043E\u043B\u043E\u0432\u0435, \u0438 \u0431\u043E\u043B\u0435\u0437\u043D\u0435\u043D\u043D\u044B\u043C
+        \u043E\u0449\u0443\u0449\u0435\u043D\u0438\u044F\u043C \u043F\u0440\u0438
+        \u043B\u044E\u0431\u043E\u0439 \u043F\u043E\u043F\u044B\u0442\u043A\u0435
+        \u0445\u043E\u0442\u044C \u043D\u0430 \u0434\u044E\u0439\u043C \u043F\u043E\u0448\u0435\u0432\u0435\u043B\u0438\u0442\u044C
+        \u043A\u043E\u043D\u0435\u0447\u043D\u043E\u0441\u0442\u044F\u043C\u0438,
+        \u043D\u0438 \u043E\u0434\u043D\u043E \u0438\u0437 \u043F\u0440\u043E\u0448\u0435\u0434\u0448\u0438\u0445
+        \u043C\u0435\u0440\u043E\u043F\u0440\u0438\u044F\u0442\u0438\u0439 \u043D\u0435
+        \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u043E\u0441\u044C \u0434\u043B\u044F
+        \u043C\u0435\u043D\u044F \u0443\u0441\u043F\u0435\u0448\u043D\u043E."
+    - name: "\u0412\u044B"
+      sentence: "\u0423 \u0442\u0435\u0431\u044F \u0441\u043B\u0443\u0447\u0430\u0439\u043D\u043E
+        \u043D\u0435 \u043D\u0430\u0439\u0434\u0451\u0442\u0441\u044F \u0441\u043A\u043B\u044F\u043D\u043E\u0447\u043A\u0430
+        \u0445\u043C\u0435\u043B\u044C\u043D\u043E\u0433\u043E, \u043F\u0440\u0438\u044F\u0442\u0435\u043B\u044C?"
+    - name: 
+      sentence: "\u041D\u0435\u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E \u043F\u043E\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043B
+        \u043B\u0435\u0433\u043A\u0438\u0439 \u0443\u0434\u0430\u0440 \u0434\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u043E\u0439
+        \u0442\u0440\u043E\u0441\u0442\u044C\u044E \u043F\u043E \u043F\u043E\u043A\u0440\u044B\u0442\u043E\u0439
+        \u043A\u043E\u0440\u043A\u043E\u0439 \u043D\u043E\u0436\u0435\u0432\u043E\u0439
+        \u0440\u0430\u043D\u0435 \u043D\u0430 \u043C\u043E\u0451\u043C \u043F\u0440\u0435\u0434\u043F\u043B\u0435\u0447\u044C\u0435."
+    - name: "\u041C\u0443\u0434\u0440\u0435\u0446"
+      sentence: "\u041D\u0435\u0432\u0438\u0434\u0430\u043D\u043D\u0430\u044F \u043D\u0430\u0433\u043B\u043E\u0441\u0442\u044C!
+        \u041A\u0430\u043A \u043C\u043E\u0436\u0435\u0448\u044C \u0422\u042B, \u043F\u044C\u044F\u043D\u044B\u0439
+        \u043F\u043E\u043B\u0443\u043C\u0435\u0440\u0442\u0432\u044B\u0439 \u043C\u0430\u043B\u044C\u0447\u0443\u0433\u0430\u043D,
+        \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E \u043A\u0430\u043A\u0438\u043C
+        \u0431\u0435\u0441\u043E\u043C \u0437\u0430\u0432\u0435\u0434\u0435\u043D\u043D\u044B\u0439
+        \u0432 \u044D\u0442\u0443 \u043F\u0435\u0449\u0435\u0440\u0443, \u043F\u0440\u043E\u0441\u0438\u0442\u044C
+        \u0443 \u043C\u0435\u043D\u044F \u0437\u0435\u043B\u044C\u0435 \u043F\u043E\u043C\u0443\u0442\u043D\u0435\u043D\u0438\u044F
+        \u0440\u0430\u0441\u0441\u0443\u0434\u043A\u0430?"
+    - name: "\u0412\u044B"
+      sentence: "\u0410 \u0412\u044B, \u043A\u0441\u0442\u0430\u0442\u0438, \u043A\u0442\u043E?"
+    - name: 
+      sentence: "\u0418 \u0445\u043E\u0442\u044F \u0432\u0437\u043E\u0440 \u043C\u043E\u0439
+        \u0431\u044B\u043B \u043D\u0435 \u0434\u043E \u043A\u043E\u043D\u0446\u0430
+        \u044F\u0441\u0435\u043D, \u0447\u0435\u0440\u0442\u044B \u043B\u0438\u0446\u0430
+        \u0441\u0442\u043E\u044F\u0449\u0435\u0433\u043E \u0440\u044F\u0434\u043E\u043C
+        \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430 \u043E\u0442\u0434\u0430\u043B\u0435\u043D\u043D\u043E
+        \u043D\u0430\u043F\u043E\u043C\u0438\u043D\u0430\u043B\u0438 \u043C\u043D\u0435
+        \u043A\u043E\u0433\u043E-\u0442\u043E \u0437\u043D\u0430\u043A\u043E\u043C\u043E\u0433\u043E.\n\u041E\u0434\u043D\u0430\u043A\u043E
+        \u043F\u0430\u043C\u044F\u0442\u044C \u043D\u0430\u043E\u0442\u0440\u0435\u0437
+        \u043E\u0442\u043A\u0430\u0437\u044B\u0432\u0430\u043B\u0430\u0441\u044C
+        \u0434\u0430\u0432\u0430\u0442\u044C \u043C\u043D\u0435 \u043D\u0443\u0436\u043D\u044B\u0435
+        \u0432\u043E\u0441\u043F\u043E\u043C\u0438\u043D\u0430\u043D\u0438\u044F."
+    - name: "\u041C\u0443\u0434\u0440\u0435\u0446"
+      sentence: "\u0421\u043B\u0438\u0448\u043A\u043E\u043C \u043C\u043D\u043E\u0433\u043E
+        \u0432\u043E\u043F\u0440\u043E\u0441\u043E\u0432 \u0434\u043B\u044F \u0433\u043E\u0442\u043E\u0432\u043E\u0433\u043E
+        \u043A \u0440\u0430\u0437\u043B\u043E\u0436\u0435\u043D\u0438\u044E \u0442\u0435\u043B\u0430."
+    - name: "\u0412\u044B"
+      sentence: "\u041A\u0445\u043C...\n\u0418 \u0432\u0441\u0451-\u0442\u0430\u043A\u0438
+        \u043D\u0435 \u043C\u043E\u0433\u043B\u0438 \u0431\u044B \u0412\u044B \u043F\u043E\u0434\u0441\u043A\u0430\u0437\u0430\u0442\u044C,
+        \u0445\u043E\u0442\u044F \u0431\u044B \u0433\u0434\u0435 \u043C\u044B \u0441\u0435\u0439\u0447\u0430\u0441
+        \u043D\u0430\u0445\u043E\u0434\u0438\u043C\u0441\u044F?"
+    - name: 
+      sentence: "\u041E\u043D \u0431\u0440\u043E\u0441\u0438\u043B \u043D\u0430 \u043C\u0435\u043D\u044F
+        \u043D\u0435\u0434\u043E\u0432\u043B\u044C\u043D\u044B\u0439 \u0432\u0437\u0433\u043B\u044F\u0434."
+    - name: "\u041C\u0443\u0434\u0440\u0435\u0446"
+      sentence: "\u041F\u0435\u0449\u0435\u0440\u0430 \u0432\u0431\u043B\u0438\u0437\u0438
+        \u0441\u0442\u043E\u043B\u0438\u0446\u044B. \u0415\u0441\u043B\u0438 \u043F\u0440\u043E\u043F\u043E\u043B\u0437\u0451\u0448\u044C
+        \u043D\u0430 \u0432\u043E\u0441\u0442\u043E\u043A \u043C\u0438\u043B\u0438
+        \u043F\u043E\u043B\u0442\u043E\u0440\u044B \u0438 \u0440\u0430\u0437\u0434\u043E\u0431\u0443\u0434\u0435\u0448\u044C
+        \u0437\u043E\u043B\u043E\u0442\u043E \u043F\u043E \u043F\u0443\u0442\u0438,
+        \u043C\u0435\u0441\u0442\u043D\u044B\u0439 \u043B\u0435\u043A\u0430\u0440\u044C
+        \u0441 \u043F\u0440\u0435\u0432\u0435\u043B\u0438\u043A\u0438\u043C \u0443\u0434\u043E\u0432\u043E\u043B\u044C\u0441\u0442\u0432\u0438\u0435\u043C
+        \u043F\u043E\u0441\u0442\u0430\u0432\u0438\u0442 \u0442\u0435\u0431\u044F
+        \u043D\u0430 \u043D\u043E\u0433\u0438."
+    - name: "\u0412\u044B"
+      sentence: "\u041E\u0447\u0435\u043D\u044C \u0432\u0435\u043B\u0438\u043A\u043E\u0434\u0443\u0448\u043D\u043E
+        \u0441 \u0412\u0430\u0448\u0435\u0439 \u0441\u0442\u043E\u0440\u043E\u043D\u044B..."
+    - name: 
+      sentence: "\u0421\u0442\u0430\u0440\u0438\u043A \u0432\u044B\u0434\u0430\u0432\u0438\u043B
+        \u043D\u0435\u043A\u043E\u0435 \u043F\u043E\u0434\u043E\u0431\u0438\u0435
+        \u0443\u043B\u044B\u0431\u043A\u0438 (\u0441\u043A\u043E\u0440\u0435\u0435
+        \u0443\u0436 \u0433\u0440\u0438\u043C\u0430\u0441\u0441\u0443 \u043E\u0442\u0432\u0440\u0430\u0449\u0435\u043D\u0438\u044F)
+        \u0438 \u0443\u0442\u043A\u043D\u0443\u043B\u0441\u044F \u0432 \u0441\u0432\u043E\u044E
+        \u043A\u043D\u0438\u0433\u0443.\n\u0415\u0449\u0451 \u0438 \u043F\u0430\u043C\u044F\u0442\u044C,
+        \u043A\u0430\u043A \u043D\u0430 \u0437\u043B\u043E, \u043E\u0431\u0440\u044B\u0432\u0430\u043B\u0430\u0441\u044C
+        \u043F\u0440\u044F\u043C\u043E \u043D\u0430 \u043C\u043E\u0451\u043C \u043F\u0440\u043E\u0431\u0443\u0436\u0434\u0435\u043D\u0438\u0438.
+        \u041A\u0430\u043A\u0438\u0435 \u0447\u0443\u0434\u0435\u0441\u0430 \u0442\u0432\u043E\u0440\u0438\u043B\u0438\u0441\u044C
+        \u0441\u043E \u043C\u043D\u043E\u0439 \u0434\u043E \u044D\u0442\u043E\u0433\u043E
+        \u043C\u043E\u043C\u0435\u043D\u0442\u0430, \u043C\u043E\u0436\u043D\u043E
+        \u0442\u043E\u043B\u044C\u043A\u043E \u0433\u0430\u0434\u0430\u0442\u044C.\n"
+    - name: 
+      sentence: "\u0412\u0438\u0434\u0438\u043C\u043E, \u043F\u0440\u0438\u0434\u0451\u0442\u0441\u044F
+        \u0440\u0430\u0437\u0431\u0438\u0440\u0430\u0442\u044C\u0441\u044F \u0441\u043E
+        \u044D\u0442\u0438\u043C \u0441\u0430\u043C\u043E\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u043D\u043E."
+    - name: 
+      sentence: 
   player: {fileID: 2088332193}
 --- !u!61 &1862560954
 BoxCollider2D:
@@ -23069,7 +23729,7 @@ MonoBehaviour:
   jumpForce: 9
   feetPos: {fileID: 122638646}
   offset: 0
-  checkRadius: 1
+  checkRadius: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
