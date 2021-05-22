@@ -13,14 +13,16 @@ public class DialogueManager: MonoBehaviour
     private Queue<Sentence> sentences;
     private bool startDialogue;
     private Dialogue dialogue;
+    private float speedWriteText;
 
     private void Start()
     {
         sentences = new Queue<Sentence>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, float speedWriteText)
     {
+        this.speedWriteText = speedWriteText;
         animator.SetBool("isOne", true);
 
         this.dialogue = dialogue;
@@ -62,7 +64,7 @@ public class DialogueManager: MonoBehaviour
             foreach (var letter in sentence.ToCharArray())
             {
                 dialogueText.text += letter;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(speedWriteText);
             }
         }
     }

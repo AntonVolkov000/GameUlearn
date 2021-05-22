@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NeutralHero : MonoBehaviour, IPointerClickHandler
+public class NeutralHero : MonoBehaviour
 {
     public PlayerController player;
-    public void OnPointerClick(PointerEventData eventData)
+
+    private void OnMouseEnter()
     {
         player.isNeutralObject = true;
+    }
+
+    private void OnMouseExit()
+    {
+        player.isNeutralObject = false;
     }
 }

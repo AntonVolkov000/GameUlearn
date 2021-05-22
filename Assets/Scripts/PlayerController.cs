@@ -10,7 +10,6 @@ public class PlayerController : HealthBar
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
-    public Vector2 radiusAttackHand;
     public float speed;
     public float gravityScale;
     public float jumpForce;
@@ -30,6 +29,7 @@ public class PlayerController : HealthBar
     public bool isNeutralObject;
     public bool inLadder;
     public bool isGrounded;
+    public float speedWriteText;
 
     private float moveInput;
     private float tempJumpForce;
@@ -162,7 +162,7 @@ public class PlayerController : HealthBar
     
     private void PlayerAttack()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !isNeutralObject)
         {
             mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RotatePlayer();
@@ -170,7 +170,7 @@ public class PlayerController : HealthBar
             animator.Play("PlayerAttack2");
             StartCoroutine(WaitAttack(1f));
         }
-        else if (Input.GetMouseButton(1))
+        else if (Input.GetMouseButton(1) && !isNeutralObject)
         {
             RotatePlayer();
             isAttackMagic = true;

@@ -5,11 +5,10 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Chest : MonoBehaviour, IPointerClickHandler
+public class Chest : NeutralHero, IPointerClickHandler
 {
     public GameObject thing;
     public Vector2 maxDistancePlayer;
-    public PlayerController player;
     public Animator animator;
     
     private IEnumerator blinkCoroutine;

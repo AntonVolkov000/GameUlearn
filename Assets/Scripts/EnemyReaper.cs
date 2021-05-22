@@ -29,7 +29,7 @@ public class EnemyReaper : MonoBehaviour
         countHealth--;
         animator.Play("ReaperDamage");
         StartCoroutine(WaitDamage());
-        isAttack = false;
+        isTrigger = false;
     }
 
     private void Start()
@@ -43,10 +43,9 @@ public class EnemyReaper : MonoBehaviour
     {
         if (countHealth == 0)
         {
-            // animator.Play("ReaperDeath");
-            Death();
+            animator.Play("ReaperDeath");
+            return;
         }
-            
         if (isAttackComplete || isGetDamage) return;
         var playerPosition = player.transform.position;
         if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerMove))
