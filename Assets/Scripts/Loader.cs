@@ -11,10 +11,11 @@ public class Loader : MonoBehaviour
     public Vector3 position;
     public VectorValue playerStorage;
     public PlayerController player;
+    public bool inRadus;
 
     public void LoadLevel(int sceneIndex)
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("ObeliskWork"))
+        if (inRadus)
         {
             player.isJump = false;
             player.isHit = false;

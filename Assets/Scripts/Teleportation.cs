@@ -1,16 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Teleportation : MonoBehaviour
+public class Teleportation : Loader, IPointerClickHandler
 {
-    public Animator animator;
+    // public Animator animator;
+    public int sceneIndex;
+    
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        LoadLevel(sceneIndex);
+    }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            animator.SetTrigger("isTriggered");
+            inRadus = true;
+            animator.Play("ObeliskWork");
         }
     }
 
@@ -18,7 +26,8 @@ public class Teleportation : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            animator.SetTrigger("isTriggered");
+            inRadus = false;
+            animator.Play("ObeliskStand");
         }
     }
 }
