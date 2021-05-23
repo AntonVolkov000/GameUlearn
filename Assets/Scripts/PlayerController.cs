@@ -42,6 +42,7 @@ public class PlayerController : HealthBar
     private bool isHit;
     private Coroutine fallCoroutine;
     private Vector3 mousePos;
+    //private VectorValue position;
 
     public int CountShards { get; set; }
     public bool GetDamage { get; set; }
