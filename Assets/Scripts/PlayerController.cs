@@ -29,17 +29,17 @@ public class PlayerController : HealthBar
     public bool isNeutralObject;
     public bool inLadder;
     public bool isGrounded;
+    public bool isHit;
+    public bool isJump;
     public float speedWriteText;
 
     private float moveInput;
     private float tempJumpForce;
     private Rigidbody2D rb;
-    private bool isJump;
     private bool isDead;
     private Quaternion rotationSpell;
     private SpriteRenderer sprite;
     private Animator animator;
-    private bool isHit;
     private Coroutine fallCoroutine;
     private Vector3 mousePos;
     //private VectorValue position;

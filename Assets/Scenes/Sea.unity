@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1804,6 +1804,7 @@ MonoBehaviour:
   animator: {fileID: 932973497}
   position: {x: 0, y: 0, z: 0}
   playerStorage: {fileID: 11400000, guid: 473cd623136916c4aa7e3bb21a836f4b, type: 2}
+  player: {fileID: 1611061744}
 --- !u!1 &108308514
 GameObject:
   m_ObjectHideFlags: 0
@@ -5442,7 +5443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272018391}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 1.2000004, z: -10}
+  m_LocalPosition: {x: 0.15, y: 1.5400004, z: -10}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 1757701159}
@@ -27635,7 +27636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.67}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.59473455, y: 1.1971232}
+  m_AnchoredPosition: {x: 0.596146, y: 1.5381486}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1391803449
@@ -32576,7 +32577,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1818896844
 Transform:
   m_ObjectHideFlags: 0
@@ -36568,11 +36569,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2043044776128688455, guid: a411a1ec4ee07c649afdb9ddd9774ec2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 2043044776128688455, guid: a411a1ec4ee07c649afdb9ddd9774ec2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.4
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 2043044776128688504, guid: a411a1ec4ee07c649afdb9ddd9774ec2, type: 3}
       propertyPath: healthBar

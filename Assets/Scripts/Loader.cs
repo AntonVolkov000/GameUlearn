@@ -10,11 +10,14 @@ public class Loader : MonoBehaviour
     public Animator animator;
     public Vector3 position;
     public VectorValue playerStorage;
+    public PlayerController player;
 
     public void LoadLevel(int sceneIndex)
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("ObeliskWork"))
         {
+            player.isJump = false;
+            player.isHit = false;
             playerStorage.initialValue = position;
             StartCoroutine(LoadAsynchronously(sceneIndex));
         }
