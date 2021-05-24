@@ -9,6 +9,7 @@ public class DialogueManager: MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
+    public bool isEnd;
 
     private Queue<Sentence> sentences;
     private bool startDialogue;
@@ -38,7 +39,7 @@ public class DialogueManager: MonoBehaviour
         DisplayNextSentence();
     }
 
-    private void DisplayNextSentence()
+    public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
@@ -74,5 +75,6 @@ public class DialogueManager: MonoBehaviour
         PlayerController.inDialogue = false;
         PlayerController.isAttackMagic = false;
         animator.SetBool("isOne", false);
+        isEnd = true;
     }
 }
