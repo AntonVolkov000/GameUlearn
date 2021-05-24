@@ -19,7 +19,7 @@ public class TheEnd : MonoBehaviour
     {
         if (FindObjectOfType<DialogueManager>().isEnd)
         {
-            animator.Play("Fade");
+            animator.Play("TheEnd");
         }
     }
 }

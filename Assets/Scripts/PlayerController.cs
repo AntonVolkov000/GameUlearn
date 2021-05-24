@@ -35,6 +35,7 @@ public class PlayerController : HealthBar
     public bool isLearnAttack;
     public bool isLearnDialogue;
     public bool isLearn;
+    public bool isAttackHand;
     public MainMenu load;
 
     private float moveInput;
@@ -133,7 +134,7 @@ public class PlayerController : HealthBar
         
         if (isGrounded && fallCoroutine != null)
             StopCoroutine(fallCoroutine);
-        if (isGrounded && Input.GetKey(KeyCode.Space) && !inLadder)
+        if (isGrounded && Input.GetKey(KeyCode.Space) && !inLadder && !isAttackHand)
         {
             rb.velocity = Vector2.up * jumpForce;
             animator.Play("PlayerJump");
@@ -195,12 +196,13 @@ public class PlayerController : HealthBar
             animator.Play("PlayerAttack2");
             StartCoroutine(WaitAttack(1f));
         }
-        else if (Input.GetMouseButton(1) && !isNeutralObject)
+        else if (Input.GetMouseButton(1) && !isNeutralObject && !isAttackHand)
         {
             RotatePlayer();
             isAttackMagic = true;
+            isAttackHand = true;
             animator.Play("PlayerAttack1");
-            StartCoroutine(WaitAttack(0.65f));
+            StartCoroutine(WaitAttack1(0.9f));
         }
     }
 
@@ -276,6 +278,11 @@ public class PlayerController : HealthBar
     private IEnumerator WaitAttack(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         isAttackMagic = false;
+    }
+    
+    private IEnumerator WaitAttack1(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        isAttackHand = false;
     }
     
     private IEnumerator WaitFall() {

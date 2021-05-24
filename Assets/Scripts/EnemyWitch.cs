@@ -15,9 +15,11 @@ public class EnemyWitch : MonoBehaviour
     public int countDamage;
     
     private float oldSpeed;
+    private float oldSpeed2;
     private bool isTrigger;
     private bool isAttack;
     private bool isGetDamage;
+    private bool isStrave;
     private SpriteRenderer sprite;
     private Animator animator;
     
@@ -33,6 +35,7 @@ public class EnemyWitch : MonoBehaviour
 
     private void Start()
     {
+        oldSpeed2 = speed;
         sprite = GetComponent<SpriteRenderer>();
         sprite.flipX = true;
         animator = GetComponent<Animator>();
@@ -43,12 +46,25 @@ public class EnemyWitch : MonoBehaviour
         if (countHealth == 0)
         {
             animator.Play("WitchDeath");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
             return;
         }
         if (isAttack || isGetDamage) return;
         var playerPosition = player.transform.position;
         if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerMove))
         {
+            if (Math.Abs(playerPosition.y - transform.position.y) <= 3 &&
+                Math.Abs(playerPosition.x - transform.position.x) <= 1)
+            {
+                sprite.flipX = false;
+                animator.Play("WitchRun");
+                isStrave = true;
+                speed = Math.Abs(oldSpeed2);
+                transform.Translate(direction.normalized * speed / 8);
+                StartCoroutine(WaitStrave());
+            }
+            if (isStrave) return;
             if (playerPosition.x < transform.position.x)
             {
                 speed = Math.Abs(speed) * -1;
@@ -132,8 +148,13 @@ public class EnemyWitch : MonoBehaviour
     }
     
     private IEnumerator WaitDamage() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         isGetDamage = false;
         isAttack = false;
+    }
+    
+    private IEnumerator WaitStrave() {
+        yield return new WaitForSeconds(0.2f);
+        isStrave = false;
     }
 }

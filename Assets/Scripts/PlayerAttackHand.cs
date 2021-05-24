@@ -6,10 +6,12 @@ using UnityEngine;
 public class PlayerAttackHand : MonoBehaviour
 {
     private Collider2D other;
+    private bool inRadius;
 
     public void StartDamage()
     {
         if (other == null) return;
+        if (!inRadius) return;
         if (other.GetComponent<EnemySkeleton>() != null)
             other.GetComponent<EnemySkeleton>().GetDamage();
         else if (other.GetComponent<EnemyCrab>() != null)
@@ -26,6 +28,12 @@ public class PlayerAttackHand : MonoBehaviour
         
     private void OnTriggerStay2D(Collider2D other)
     {
+        inRadius = true;
         this.other = other;
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        inRadius = false;
     }
 }
