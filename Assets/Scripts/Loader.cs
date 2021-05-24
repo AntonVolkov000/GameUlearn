@@ -20,6 +20,9 @@ public class Loader : MonoBehaviour
             player.isJump = false;
             player.isHit = false;
             player.isLearn = false;
+            var generalVariable = GameObject.FindGameObjectWithTag("GeneralVar").GetComponent<GeneralVar>();
+            generalVariable.countHeath = player.currentHealth;
+            generalVariable.countShards = player.CountShards;
             player.OffIsAttack();
             playerStorage.initialValue = position;
             StartCoroutine(LoadAsynchronously(sceneIndex));

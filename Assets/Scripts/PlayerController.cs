@@ -94,9 +94,12 @@ public class PlayerController : HealthBar
 
     private void Start()
     {
-        //transform.position = position.initialValue;
-        currentHealth = maxHealth;
+         var generalVariable = GameObject.FindGameObjectWithTag("GeneralVar").GetComponent<GeneralVar>();
+         currentHealth = generalVariable.countHeath;
+         CountShards = generalVariable.countShards;
+        // transform.position = position.initialValue;
         healthBar.SetMaxHealth(maxHealth);
+        healthBar.SetHealth(currentHealth);
         sprite = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();

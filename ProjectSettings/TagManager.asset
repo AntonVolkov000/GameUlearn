@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - PlayerSpell
   - PlayerAttackHand
+  - GeneralVar
   layers:
   - Default
   - TransparentFX
