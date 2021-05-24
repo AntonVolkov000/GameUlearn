@@ -19,6 +19,8 @@ public class Loader : MonoBehaviour
         {
             player.isJump = false;
             player.isHit = false;
+            player.isLearn = false;
+            player.OffIsAttack();
             playerStorage.initialValue = position;
             StartCoroutine(LoadAsynchronously(sceneIndex));
         }

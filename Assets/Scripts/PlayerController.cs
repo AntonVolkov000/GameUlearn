@@ -32,6 +32,9 @@ public class PlayerController : HealthBar
     public bool isHit;
     public bool isJump;
     public float speedWriteText;
+    public bool isLearnAttack;
+    public bool isLearnDialogue;
+    public bool isLearn;
 
     private float moveInput;
     private float tempJumpForce;
@@ -46,6 +49,16 @@ public class PlayerController : HealthBar
 
     public int CountShards { get; set; }
     public bool GetDamage { get; set; }
+    
+    public bool MoveRight { get; set; }
+    public bool MoveLeft { get; set; }
+    public bool Jump { get; set; }
+    public bool HandAttack { get; set; }
+    public bool MagicAttack { get; set; }
+    public bool DeadEnemy { get; set; }
+    public bool Dialogue { get; set; }
+    public bool OpenChest { get; set; }
+
 
     public void TakeDamage(int damage, Vector2 whereForce)
     {
@@ -71,6 +84,11 @@ public class PlayerController : HealthBar
             currentHealth += addHealth;
             healthBar.SetHealth(currentHealth);
         }
+    }
+    
+    public void OffIsAttack()
+    {
+        isAttackMagic = false;
     }
 
     private void Start()
@@ -102,7 +120,7 @@ public class PlayerController : HealthBar
             return;
         }
         if (isAttackMagic || isHit) return;
-        if (inDialogue)
+        if (!isLearn && inDialogue)
         {
             animator.Play("PlayerIdle");
             return;
@@ -123,42 +141,44 @@ public class PlayerController : HealthBar
             isJump = false;
         }
         jumpForce = inDialogue ? 0 : tempJumpForce;
+        if (isLearn)
+            jumpForce = tempJumpForce;
         PlayerMove();
-        if (!isAttackMagic && !inLadder)
+        if (!isAttackMagic && !inLadder && !isLearnAttack || isLearnDialogue)
             PlayerAttack();
     }
     
     private void PlayerMove()
     {
         var horizontal = Input.GetAxis("Horizontal");
-        if (!GetDamage && !inDialogue)
+        if (GetDamage) return;
+        if (!isLearn && inDialogue)
+            return;
+        if (horizontal < 0)
         {
-            if (horizontal < 0)
-            {
-                sprite.flipX = true;
-                SetSpellDirection(-1.5f);
-                SetAreaAttackPos(-1, 1);
-                moveInput = horizontal;
-                if (!isJump && !inLadder)
-                    animator.Play("PlayerRun");
-            }
-            else if (horizontal > 0)
-            {
-                sprite.flipX = false;
-                SetSpellDirection(1.5f);
-                SetAreaAttackPos(1, -1);
-                moveInput = horizontal;
-                if (!isJump && !inLadder)
-                    animator.Play("PlayerRun");
-            }
-            else
-            {
-                moveInput = 0;
-                if (!isJump && !inLadder)
-                    animator.Play("PlayerIdle");
-            }
-            rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+            sprite.flipX = true;
+            SetSpellDirection(-1.5f);
+            SetAreaAttackPos(-1, 1);
+            moveInput = horizontal;
+            if (!isJump && !inLadder)
+                animator.Play("PlayerRun");
         }
+        else if (horizontal > 0)
+        {
+            sprite.flipX = false;
+            SetSpellDirection(1.5f);
+            SetAreaAttackPos(1, -1);
+            moveInput = horizontal;
+            if (!isJump && !inLadder)
+                animator.Play("PlayerRun");
+        }
+        else
+        {
+            moveInput = 0;
+            if (!isJump && !inLadder)
+                animator.Play("PlayerIdle");
+        }
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
     }
     
     private void PlayerAttack()
