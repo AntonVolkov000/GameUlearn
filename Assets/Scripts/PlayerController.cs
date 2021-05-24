@@ -35,6 +35,7 @@ public class PlayerController : HealthBar
     public bool isLearnAttack;
     public bool isLearnDialogue;
     public bool isLearn;
+    public MainMenu load;
 
     private float moveInput;
     private float tempJumpForce;
@@ -266,6 +267,7 @@ public class PlayerController : HealthBar
     {
         isDead = true;
         animator.Play("PlayerDead");
+        load.PlayGame(0);
     }
 
     private IEnumerator WaitAttack(float waitTime) {

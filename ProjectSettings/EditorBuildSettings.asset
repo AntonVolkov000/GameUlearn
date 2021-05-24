@@ -10,7 +10,7 @@ EditorBuildSettings:
     guid: f09cfe7bd3b4acb44bc4dd5ec025ffb3
   - enabled: 1
     path: Assets/Scenes/LearnScene.unity
-    guid: 10a2a6ece1e454e458867c1c13527d6d
+    guid: 95bc58d1d0c55d2428b359901d9d0293
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: ad171500f9f7fa442a292aeccd216280
