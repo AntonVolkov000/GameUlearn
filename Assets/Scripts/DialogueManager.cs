@@ -4,26 +4,28 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager: MonoBehaviour
 {
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI dialogueText;
     public Animator animator;
-    
-    private Queue<string> sentences;
+    public bool isEnd;
+
+    private Queue<Sentence> sentences;
     private bool startDialogue;
     private Dialogue dialogue;
+    private float speedWriteText;
 
     private void Start()
     {
-        sentences = new Queue<string>();
+        sentences = new Queue<Sentence>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, float speedWriteText)
     {
+        this.speedWriteText = speedWriteText;
         animator.SetBool("isOne", true);
-        nameText.text = dialogue.name;
-        
+
         this.dialogue = dialogue;
         PlayerController.inDialogue = true;
         
@@ -31,21 +33,23 @@ public class DialogueManager : MonoBehaviour
         startDialogue = true;
 
         foreach (var sentence in dialogue.sentences)
+        {
             sentences.Enqueue(sentence);
+        }
         DisplayNextSentence();
     }
 
-    private void DisplayNextSentence()
+    public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
             EndDialogue();
             return;
         }
-        
         var sentence = sentences.Dequeue();
+        nameText.text = sentence.name;
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence.sentence));
     }
 
     private IEnumerator TypeSentence(string sentence)
@@ -61,7 +65,7 @@ public class DialogueManager : MonoBehaviour
             foreach (var letter in sentence.ToCharArray())
             {
                 dialogueText.text += letter;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(speedWriteText);
             }
         }
     }
@@ -69,6 +73,8 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         PlayerController.inDialogue = false;
+        PlayerController.isAttackMagic = false;
         animator.SetBool("isOne", false);
+        isEnd = true;
     }
 }

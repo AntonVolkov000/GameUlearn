@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MageMagicSpell : MonoBehaviour
 {
+    public int countDamage;
     public float speed;
     public PlayerController player;
 
@@ -35,7 +36,7 @@ public class MageMagicSpell : MonoBehaviour
         player.GetDamage = true;
         if (player.transform.position.x > transform.position.x)
             moveX = Math.Abs(moveX);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
+        player.TakeDamage(countDamage, new Vector2(moveX, 5));
     }
     
     private void Fly()

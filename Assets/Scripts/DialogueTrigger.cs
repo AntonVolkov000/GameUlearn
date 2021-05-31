@@ -18,7 +18,7 @@ public class DialogueTrigger : MonoBehaviour, IPointerClickHandler
             Math.Abs(player.transform.position.y - this.gameObject.transform.position.y) <
             playerComponent.maxDistanceToNeutral.y)
         {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, player.speedWriteText);
         }
     }
 }

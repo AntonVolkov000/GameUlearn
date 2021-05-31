@@ -10,6 +10,8 @@ TagManager:
   - Spell
   - Enemy
   - PlayerSpell
+  - PlayerAttackHand
+  - GeneralVar
   layers:
   - Default
   - TransparentFX
@@ -17,10 +19,10 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Crab
+  - AttackHand
+  - Enemy
   - 
   - 
   - 

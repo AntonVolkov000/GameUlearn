@@ -22,9 +22,19 @@ public class EnemySlime : MonoBehaviour
     private float oldSpeed;
     private bool isTrigger;
     private bool isGetDamage;
+    private bool isGetDamageMage;
     private Vector3 position;
     private SpriteRenderer sprite;
     private Animator animator;
+    
+    public void GetDamage()
+    {
+        if (countHealth == 0) return;
+        isGetDamageMage = true;
+        countHealth--;
+        animator.Play("SlimeDamageMage");
+        StartCoroutine(WaitDamage());
+    }
 
     private void Start()
     {
@@ -37,7 +47,15 @@ public class EnemySlime : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (countHealth == 0) return;
+        if (countHealth == 0)
+        {
+            speed = 0;
+            animator.Play("SlimeDeath");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+            return;
+        }
+        if (isGetDamageMage) return;
         var playerPosition = player.transform.position;
         if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerMove))
         {
@@ -71,6 +89,11 @@ public class EnemySlime : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D coll)
     {
         if (countHealth == 0) return;
+        if (coll.gameObject.CompareTag("PlayerSpell"))
+        {
+            GetDamage();
+            return;
+        }
         if (!isTrigger && barrierMove && coll.gameObject.CompareTag("Barrier"))
         {
             speed *= -1;
@@ -133,7 +156,6 @@ public class EnemySlime : MonoBehaviour
     
     private void Attack()
     {
-        
         var playerPosition = player.transform.position;
         var positionCurrentObj = transform.position;
         if (!sprite.flipX && playerPosition.x > positionCurrentObj.x ||
@@ -144,16 +166,16 @@ public class EnemySlime : MonoBehaviour
         player.GetDamage = true;
         if (sprite.flipX)
             moveX = Math.Abs(moveX);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
-        player.TakeDamage(countDamage);
+        player.TakeDamage(countDamage, new Vector2(moveX, 5));
     }
-    
+
     private void Death() {
         gameObject.SetActive(false);
     }
     
     private IEnumerator WaitDamage() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         isGetDamage = false;
+        isGetDamageMage = false;
     }
 }

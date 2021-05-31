@@ -7,10 +7,26 @@ public class Loader : MonoBehaviour
 {
     public GameObject loadingScreen;
     public Slider loadingSlider;
+    public Animator animator;
+    public Vector3 position;
+    public VectorValue playerStorage;
+    public PlayerController player;
+    public bool inRadus;
 
-    public void LoadLevel (int sceneIndex)
+    public void LoadLevel(int sceneIndex)
     {
-        StartCoroutine (LoadAsynchronously(sceneIndex));
+        if (inRadus)
+        {
+            player.isJump = false;
+            player.isHit = false;
+            player.isLearn = false;
+            var generalVariable = GameObject.FindGameObjectWithTag("GeneralVar").GetComponent<GeneralVar>();
+            generalVariable.countHeath = player.currentHealth;
+            generalVariable.countShards = player.CountShards;
+            player.OffIsAttack();
+            playerStorage.initialValue = position;
+            StartCoroutine(LoadAsynchronously(sceneIndex));
+        }
     }
 
     IEnumerator LoadAsynchronously (int sceneIndex)

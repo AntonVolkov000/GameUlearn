@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class NeutralHero : MonoBehaviour
 {
-    private SpriteRenderer sprite;
-    
-    void Start()
+    public PlayerController player;
+
+    private void OnMouseEnter()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        player.isNeutralObject = true;
+    }
+
+    private void OnMouseExit()
+    {
+        player.isNeutralObject = false;
     }
 }

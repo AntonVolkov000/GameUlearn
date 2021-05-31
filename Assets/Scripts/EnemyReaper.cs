@@ -16,10 +16,21 @@ public class EnemyReaper : MonoBehaviour
     
     private float oldSpeed;
     private bool isTrigger;
+    private bool isGetDamage;
     private bool isAttack;
     private bool isAttackComplete;
     private SpriteRenderer sprite;
     private Animator animator;
+    
+    public void GetDamage()
+    {
+        if (countHealth == 0) return;
+        isGetDamage = true;
+        countHealth--;
+        animator.Play("ReaperDamage");
+        StartCoroutine(WaitDamage());
+        isTrigger = false;
+    }
 
     private void Start()
     {
@@ -30,7 +41,14 @@ public class EnemyReaper : MonoBehaviour
     
     private void FixedUpdate()
     {
-        if (countHealth == 0 || isAttackComplete) return;
+        if (countHealth == 0)
+        {
+            animator.Play("ReaperDeath");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+            return;
+        }
+        if (isAttackComplete || isGetDamage) return;
         var playerPosition = player.transform.position;
         if (PlayerInsideRadius(playerPosition, transform.position, radiusTriggerMove))
         {
@@ -80,6 +98,12 @@ public class EnemyReaper : MonoBehaviour
             transform.Translate(direction.normalized * speed / 8);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("PlayerSpell"))
+            GetDamage();
+    }
     
     private void IsAttack()
     {
@@ -104,8 +128,7 @@ public class EnemyReaper : MonoBehaviour
         player.GetDamage = true;
         if (!sprite.flipX)
             moveX = Math.Abs(moveX);
-        player.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX, 5);
-        player.TakeDamage(countDamage);
+        player.TakeDamage(countDamage, new Vector2(moveX, 5));
     }
 
     private void Death() {
@@ -117,5 +140,10 @@ public class EnemyReaper : MonoBehaviour
         isAttackComplete = true;
         yield return new WaitForSeconds(0.6f);
         isAttackComplete = false;
+    }
+    
+    private IEnumerator WaitDamage() {
+        yield return new WaitForSeconds(0.2f);
+        isGetDamage = false;
     }
 }

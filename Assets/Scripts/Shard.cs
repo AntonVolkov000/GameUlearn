@@ -10,7 +10,7 @@ public class Shard : MonoBehaviour
         if(other.gameObject.CompareTag("Player") && !taken)
         {
             other.gameObject.GetComponent<PlayerController>().CountShards++;
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
             taken = true;
         }
     }
