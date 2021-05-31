@@ -21,13 +21,13 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 633221466027007138, guid: 3f28871f2472deb40bd12c86c3094354, type: 3}
-    - time: 0.2
+    - time: 0.28333333
       value: {fileID: -6105036548963489285, guid: 3f28871f2472deb40bd12c86c3094354, type: 3}
-    - time: 0.33333334
+    - time: 0.48333332
       value: {fileID: -130182088711984932, guid: 3f28871f2472deb40bd12c86c3094354, type: 3}
-    - time: 0.5
+    - time: 0.71666664
       value: {fileID: -5647176263201191180, guid: 3f28871f2472deb40bd12c86c3094354, type: 3}
-    - time: 0.5833333
+    - time: 0.8333333
       value: {fileID: -5647176263201191180, guid: 3f28871f2472deb40bd12c86c3094354, type: 3}
     attribute: m_Sprite
     path: 
@@ -58,7 +58,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.59999996
+    m_StopTime: 0.84999996
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -78,7 +78,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.5833333
+  - time: 0.8333333
     functionName: PushMagicSpell
     data: 
     objectReferenceParameter: {fileID: 0}

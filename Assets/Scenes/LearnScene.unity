@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6290,7 +6290,8 @@ PolygonCollider2D:
       - {x: 16.637293, y: -3.5862179}
       - {x: 35.721764, y: -3.8125563}
       - {x: 65.53575, y: -3.8251307}
-      - {x: 66.59003, y: -3.64538}
+      - {x: 74.67632, y: -3.7634287}
+      - {x: 74.86018, y: 6.48956}
       - {x: 66.59682, y: 6.548585}
 --- !u!4 &521188396
 Transform:
@@ -15502,7 +15503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452c42cc0abe05e44af7b3c8a141a1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countHeath: 150
+  countHeath: 200
   countShards: 0
 --- !u!1 &1145031093
 GameObject:
@@ -16334,7 +16335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2877017217783380295, guid: a411a1ec4ee07c649afdb9ddd9774ec2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -1.1
       objectReference: {fileID: 0}
     - target: {fileID: 2877017217783380295, guid: a411a1ec4ee07c649afdb9ddd9774ec2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16382,7 +16383,7 @@ PrefabInstance:
       objectReference: {fileID: 924250369}
     - target: {fileID: 2877017217783380344, guid: a411a1ec4ee07c649afdb9ddd9774ec2, type: 3}
       propertyPath: maxHealth
-      value: 150
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2877017217783380344, guid: a411a1ec4ee07c649afdb9ddd9774ec2, type: 3}
       propertyPath: shardText
@@ -16483,7 +16484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1278198505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -3.1, z: -10}
+  m_LocalPosition: {x: -1.1, y: -3.1, z: -10}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 1757080812}
@@ -17898,7 +17899,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -9.67}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.50457096, y: 0.6691313}
+  m_AnchoredPosition: {x: -1.1045686, y: 0.6684041}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1391803449
