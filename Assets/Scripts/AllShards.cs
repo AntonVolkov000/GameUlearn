@@ -13,7 +13,7 @@ public class AllShards : MonoBehaviour
     {
         var generalVariable = GameObject.FindGameObjectWithTag("GeneralVar").GetComponent<GeneralVar>();
         var countShards = generalVariable.countShards;
-        if (countShards == 6)
+        if (countShards >= 6)
         {
             allShardsWisest.SetActive(true);
             allShardsObelisk.SetActive(true);
