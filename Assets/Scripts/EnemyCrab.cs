@@ -49,6 +49,8 @@ public class EnemyCrab : MonoBehaviour
         {
             speed = 0;
             animator.Play("CrabDeath");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
             return;
         }
         if (isGetDamage || isAttack) return;

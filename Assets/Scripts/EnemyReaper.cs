@@ -44,6 +44,8 @@ public class EnemyReaper : MonoBehaviour
         if (countHealth == 0)
         {
             animator.Play("ReaperDeath");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
             return;
         }
         if (isAttackComplete || isGetDamage) return;
@@ -141,7 +143,7 @@ public class EnemyReaper : MonoBehaviour
     }
     
     private IEnumerator WaitDamage() {
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.2f);
         isGetDamage = false;
     }
 }

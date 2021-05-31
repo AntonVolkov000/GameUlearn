@@ -10,6 +10,8 @@ public class Ladder : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            player.isHit = false;
+            player.isAttackHand = false;
             if (other.GetComponent<PlayerController>().currentHealth == 0)
             {
                 player.inLadder = false;

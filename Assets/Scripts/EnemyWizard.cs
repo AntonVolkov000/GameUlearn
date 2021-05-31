@@ -49,7 +49,11 @@ public class EnemyWizard : MonoBehaviour
     private void FixedUpdate()
     {
         if (countHealth == 0)
+        {
             animator.Play("MageDeath");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
+        }
         if (countHealth == 0 || isGetDamage || waitAttack) return;
         var playerPosition = player.transform.position;
         if (checkOneCell)
@@ -163,7 +167,7 @@ public class EnemyWizard : MonoBehaviour
     }
 
     private IEnumerator WaitDamage() {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.3f);
         isGetDamage = false;
     }
     

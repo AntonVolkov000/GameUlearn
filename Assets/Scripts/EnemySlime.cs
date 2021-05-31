@@ -51,6 +51,8 @@ public class EnemySlime : MonoBehaviour
         {
             speed = 0;
             animator.Play("SlimeDeath");
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            GetComponent<CapsuleCollider2D>().isTrigger = true;
             return;
         }
         if (isGetDamageMage) return;
@@ -172,7 +174,7 @@ public class EnemySlime : MonoBehaviour
     }
     
     private IEnumerator WaitDamage() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.3f);
         isGetDamage = false;
         isGetDamageMage = false;
     }
